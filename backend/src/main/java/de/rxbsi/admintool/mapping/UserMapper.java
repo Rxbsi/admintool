@@ -4,10 +4,10 @@ import de.rxbsi.admintool.dto.User;
 import de.rxbsi.admintool.model.UserEntity;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface UserMapper {
 
-    UserEntity dtoToEntity(User dto);
-    User entityToDto(UserEntity entity);
+    UserEntity toEntity(User dto);
+    User toDto(UserEntity entity);
 
 }

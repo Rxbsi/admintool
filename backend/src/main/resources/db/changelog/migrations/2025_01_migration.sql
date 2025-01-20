@@ -2,7 +2,7 @@
 
 -- changeset robin.franz:Adding-User
 CREATE TABLE ADMIN_USER(
-  ID bigint not null,
+  ID BIGSERIAL PRIMARY KEY,
   USERNAME varchar(255),
   EMAIL varchar(255),
   PASSWORD varchar(255),
