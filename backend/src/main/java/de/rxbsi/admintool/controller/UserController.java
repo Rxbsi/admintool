@@ -29,5 +29,10 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @GetMapping("/byId/{id}")
+    User getUserById(@PathVariable Long id) {
+        return userService.findUser(id);
+    }
+
 
 }

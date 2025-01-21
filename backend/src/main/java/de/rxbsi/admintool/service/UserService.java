@@ -12,4 +12,11 @@ public interface UserService {
      */
     User createUser(User user);
 
+    /**
+     * Finds User through theyre id
+     * @param id The User ID
+     * @return   The User
+     */
+    User findUser(Long id);
+
 }
