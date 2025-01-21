@@ -34,5 +34,15 @@ public class UserController {
         return userService.findUser(id);
     }
 
+    @PutMapping("/edit/{id}")
+    User updateUser(@RequestBody User newUser,
+                    @PathVariable Long id){
+        return userService.updateUser(id, newUser);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    String deleteUser(@PathVariable Long id) {
+        return userService.deleteUser(id);
+    }
 
 }
