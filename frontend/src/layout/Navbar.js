@@ -38,7 +38,7 @@ export default function Navbar() {
                     </div>
                     <div className="flex items-center space-x-4">
                     <Link
-                        to="/adduser"
+                        to="/addUser"
                         className="text-white border-2 border-white rounded-md px-4 py-2 text-sm font-medium hover:bg-white hover:text-green-500">
                         Add User
                     </Link>
