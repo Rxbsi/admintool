@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Home() {
 
   const [users, setUsers] = useState([])
+  const {id} = useParams();
 
   useEffect(() => {
     loadUsers()
@@ -13,6 +14,11 @@ export default function Home() {
   const loadUsers = async () => {
     const result = await axios.get("http://localhost:8080/api/user/users")
     setUsers(result.data);
+  }
+
+  const deleteUser = async (id) => {
+    await axios.delete(`http://localhost:8080/api/user/delete/${id}`)
+    loadUsers();
   }
 
   return (
@@ -40,9 +46,11 @@ export default function Home() {
                       <td className="px-6 py-4 border border-gray-300 text-sm text-gray-700">{user.lastName}</td>
                       <td className="px-6 py-4 border border-gray-300 text-sm text-gray-700">{user.email}</td>
                       <td className="px-6 py-4 border border-gray-300 text-sm text-gray-700">
-                        <button className="text-green-500 hover:underline"><FaEye /></button>
-                        <button className="text-blue-500 hover:underline ml-4"><FaEdit /></button>
-                        <button className="text-red-500 hover:underline ml-4"><FaTrash /></button>
+                        <Link className="bg-blue-500 text-white px-4 py-2 rounded mx-2 hover:bg-blue-600">View</Link>
+                        <Link className="border border-blue-500 text-blue-500 bg-transparent px-4 py-2 rounded mx-2 hover:bg-blue-500 hover:text-white"
+                              to={`/editUser/${user.id}`}>Edit</Link>
+                        <Link className="bg-red-500 text-white px-4 py-2 rounded mx-2 hover:bg-red-600"
+                              onClick={() => deleteUser(user.id)}>Delete</Link>
                       </td>
                     </tr>
                   ))
