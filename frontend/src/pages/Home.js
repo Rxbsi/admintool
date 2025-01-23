@@ -40,13 +40,13 @@ export default function Home() {
                 {
                   users.map((user, index) => (
                     <tr className="bg-gray-50 hover:bg-gray-100">
-                      <td className="px-6 py-4 border border-gray-300 text-sm text-gray-700" key={index}>{index+1}</td>
+                      <td className="px-6 py-4 border border-gray-300 text-sm text-gray-700">{user.id}</td>
                       <td className="px-6 py-4 border border-gray-300 text-sm text-gray-700">{user.username}</td>
                       <td className="px-6 py-4 border border-gray-300 text-sm text-gray-700">{user.name}</td>
                       <td className="px-6 py-4 border border-gray-300 text-sm text-gray-700">{user.lastName}</td>
                       <td className="px-6 py-4 border border-gray-300 text-sm text-gray-700">{user.email}</td>
                       <td className="px-6 py-4 border border-gray-300 text-sm text-gray-700">
-                        <Link className="bg-blue-500 text-white px-4 py-2 rounded mx-2 hover:bg-blue-600">View</Link>
+                        <Link to={`/viewUser/${user.id}`} className="bg-blue-500 text-white px-4 py-2 rounded mx-2 hover:bg-blue-600">View</Link>
                         <Link className="border border-blue-500 text-blue-500 bg-transparent px-4 py-2 rounded mx-2 hover:bg-blue-500 hover:text-white"
                               to={`/editUser/${user.id}`}>Edit</Link>
                         <Link className="bg-red-500 text-white px-4 py-2 rounded mx-2 hover:bg-red-600"
